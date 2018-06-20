@@ -27,7 +27,7 @@ The purpose of this document is to specify requirements for a software solution 
 ![](https://github.com/MSP-Waves/OSARS/blob/master/MSPW%20OPS%20Mobs%20Current%20June%202018.png)
 Illustration 1: System AS IS, Mobs to be replaced
 
-## 1.2 Scope of the Development Project 
+## 1.2 Scope of the Development Project  
 - The development of a stand-alone, automated software solution for managing stream capture, encoding and sending of one or more rtmp stream sources and their broadcast to one or more rtmp destinations and thus eliminate the use of the MOBS server hosted solution currently employed.
 - The solution must include confirmation/status messages to alert IT and Operations of any corrective actions.
 
