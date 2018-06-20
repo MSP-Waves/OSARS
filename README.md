@@ -24,7 +24,7 @@ June 2018
 ## 1.1 Purpose of this Document
 The purpose of this document is to specify requirements for a software solution to replace MSP Waves’s current server hosted Master OBS (MOBS) solution, with an automated, low cost command line management system. The team also wishes this document to become part of our blue print for an Open Source Automated Radio Station that will allow anyone to incorporate a low cost community radio station solution.
 
-![](https://github.com/MSP-Waves/OSARS/blob/master/MSPW%20OPS%20Mobs%20Current%20June%202018.png)
+![](https://github.com/MSP-Waves/OSARS/blob/master/MSPW%20OPS%20Mobs%20Current%20June%202018%20v2.png)
 Illustration 1: System AS IS, Mobs to be replaced
 
 ## 1.2 Scope of the Development Project  
