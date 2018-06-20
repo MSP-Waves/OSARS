@@ -25,7 +25,7 @@ June 2018
 The purpose of this document is to specify requirements for a software solution to replace MSP Waves’s current server hosted Master OBS (MOBS) solution, with an automated, low cost command line management system. The team also wishes this document to become part of our blue print for an Open Source Automated Radio Station that will allow anyone to incorporate a low cost community radio station solution.
 
 ![](https://github.com/MSP-Waves/OSARS/blob/master/MSPW%20OPS%20Mobs%20Current%20June%202018%20v2.png)
-Illustration 1: System AS IS, Mobs to be replaced
+Illustration 1: System AS IS, Windows Server with OBS to be replaced
 
 ## 1.2 Scope of the Development Project  
 - The development of a stand-alone, automated software solution for managing stream capture, encoding and sending of one or more rtmp stream sources and their broadcast to one or more rtmp destinations and thus eliminate the use of the MOBS server hosted solution currently employed.
@@ -63,16 +63,16 @@ The MSP Waves Ops team is a voluntary organization. Due to its nature, knowledga
 
 ## 2.3 Product Perspective
 
-    • The solution must be able to accept rtmp streams from any system that delivers such streams.
-    • The solution must deliver rtmp streams to any system that accepts such streams
-    • The solution must be configurable in terms of
-    • - multiple and simultaneous senders
-    • - multiple and simultaneous recipients
-    • - routing of captured streams to one or more recipients based on pre-defined categories
+- The solution must be able to accept rtmp streams from any system that delivers such streams.
+- The solution must deliver rtmp streams to any system that accepts such streams
+- The solution must be configurable in terms of
+- multiple and simultaneous senders
+- multiple and simultaneous recipients
+- routing of captured streams to one or more recipients based on pre-defined categories
 
-    • If the product is part of a larger product, then identify its interface to the other products.
-    • If the product uses existing hardware, describe the hardware.
-    • Any other relevant information.
+- If the product is part of a larger product, then identify its interface to the other products.
+- If the product uses existing hardware, describe the hardware.
+- Any other relevant information.
 
 
 ## 2.4 Overview of Functional Requirements
@@ -91,7 +91,7 @@ During non-live air-times,
 
 ## 2.5 General Constraints and Assumptions
  
-	OSAR should not be require a resource intensive hosting solution, but should be able to be hosted off of a virtual Linux machine with minimum (?) requirements. It may also be hosted on a shared or dedicated Linux machine. (Spedify hardware limitations or requirements, the amount of memory available, etc.) 
+OSAR should not be require a resource intensive hosting solution, but should be able to be hosted off of a virtual Linux machine with minimum (?) requirements. It may also be hosted on a shared or dedicated Linux machine. (Spedify hardware limitations or requirements, the amount of memory available, etc.) 
 
 An IT and Operations team will monitor automated program transition, confirm to the DJ that their stream has been captured 30 minutes before DJ goes live, and perform an audio/video quality check to guide the talent to achieve acceptable broadcast and vide settings where necessary.
 
@@ -107,7 +107,7 @@ Constraints: This SRS does not discuss streaming to MSP/PAL Discord audio.
 
 ## 2.6 User View of Product Use
 
-	The initial version of the product is command-line with no GUI. However, a messaging system for status and error should be implemented and displayed on screen accordingly. 
+The initial version of the product is command-line with no GUI. However, a messaging system for status and error should be implemented and displayed on screen accordingly. 
 
 Access to the solution to the MSPW team is provided through SSH or RDP.
 
@@ -119,7 +119,7 @@ NOTE: Technical information needed to design the software
 The user interface will be an ssh terminal window or an JAVA capable browser for RDP connections.
 	
 ### 3.1.2 Hardware Interface
-	A work station connected to the internet plus mouse and mousepad.
+A work station connected to the internet plus mouse and mousepad.
 
 ### 3.1.3 Software Interface
 Java-capable web browser with access to the internet, the Java Development Kit (JDK) from Sun Microsystems or Integrated Development Environment (IDE), an ssh capable terminal, and a text editor.
@@ -130,20 +130,20 @@ VLC for audio/video checks
 
 ## 3.2 Detailed Description of Functional Requirements
 
-###	3.2.1 Template for describing functional requirements
+### 3.2.1 Template for describing functional requirements
 This lists the exact template your SRS will apply in describing each of the functional components that were identified in Section 2.4.  This section should have (for each requirement) at least the following:
 
 ##### (1)  DJ Live Show Content Provider
-	• Content provision by DJ via OBS or similar
-• Inputs: Video codec/settings: ; in what form/format will  inputs arrive; from what sources input will be, derived, legal domains of each input element
-• Streaming/broadcasting with zero dropped network or encoding frames, status green at all times. Should dropped network frames occur, check if it is a WIFI issue, a router issue, and ISP issue. . Should it be an encoding issue, check settings guidelines. Should the stream not connect at all, liase with a member of the MSPW Ops team.
-• The DJ will produce a rtmp stream with a personal key unique to that DJ.
+- Content provision by DJ via OBS or similar
+- Inputs: Video codec/settings: ; in what form/format will  inputs arrive; from what sources input will be, derived, legal domains of each input element
+- Streaming/broadcasting with zero dropped network or encoding frames, status green at all times. Should dropped network frames occur, check if it is a WIFI issue, a router issue, and ISP issue. . Should it be an encoding issue, check settings guidelines. Should the stream not connect at all, liase with a member of the MSPW Ops team.
+- The DJ will produce a rtmp stream with a personal key unique to that DJ.
 
 ##### (2)  NGINX
-• Purpose / description of the NGINX HLS stream engine go here. Incorporate scaleability, multi-platform, multi-destination streaming where applicable.
-• Inputs: which inputs; in what form/format will  inputs arrive; from what sources input will be
- 	derived, legal domains of each input element
-• processing: describes the outcome rather than the implementation; include any validity 
+- Purpose / description of the NGINX HLS stream engine go here. Incorporate scaleability, multi-platform, multi-destination streaming where applicable.
+- Inputs: which inputs; in what form/format will  inputs arrive; from what sources input will be
+derived, legal domains of each input element
+- processing: describes the outcome rather than the implementation; include any validity 
 
 **inputs:**
 Ngnix+rtmp
@@ -176,9 +176,9 @@ These outputs must be soft-configurable and must be able to be switched on the f
 • processing: describes the outcome rather than the implementation; include any validity
 - Start: During non-live shows: Initiate (6) Steemix Backfill
 - Is Live show scheduled?
-	No → Continue Steemix Transmission
-	Yes → Does DJ Live Stream exist? Yes → Capture → Goto (4) Transmit
-	No → Does Replay Exist? Yes → Play Replay. If No → Continue Live Stream
+  - No → Continue Steemix Transmission
+  - Yes → Does DJ Live Stream exist? Yes → Capture → Goto (4) Transmit
+  - No → Does Replay Exist? Yes → Play Replay. If No → Continue Live Stream
 
 **Input/output**
 *Default Operation:*
@@ -189,11 +189,11 @@ gstreamer → icecast audio stream + video overlay> push to rtmp `live` key (in 
 *Live Show Scheduler:*
 Show Based Triggers- `$show` will correlate with show OBS host steem name
 - 2 mins before scheduled $show time, detect $show hosts stream key (ffprobe)
-	- if no stream is detected, gstreamer mp4 $show archive on loop with "replay" text to rtmp `live` key exactly on the hour
-		- if no $show archive is available, failover to Default Operation
-		- if $show key appears during time slot, 
-	- if stream is detected, ffmpeg $show rtmp key to `live` key exactly on the hour
-		- if $show connection drops during show, switch to Default Operation until $show stream re-appears
+  - if no stream is detected, gstreamer mp4 $show archive on loop with "replay" text to rtmp `live` key exactly on the hour
+  - if no $show archive is available, failover to Default Operation
+  - if $show key appears during time slot, 
+  - if stream is detected, ffmpeg $show rtmp key to `live` key exactly on the hour
+  - if $show connection drops during show, switch to Default Operation until $show stream re-appears
 
 **Override**
 - if $override stream key detected, ffmpeg to `live`, ignoring timed triggers until stream disconnects
@@ -205,7 +205,7 @@ This list must be configurable. It must not be hard-coded. Any destination can b
 - MSPwaves.com/listen (html5)
 - Icecast
 - TuneIn
-- …
+- … ...
 
 A short description of the functions to be performed by the software, i.e. what the product should do.  This description must be in a form understandable to users, operators, and clients.  The detailed requirements specifications are left to Section 3.2 in this SRS.  Number the Functional Requirements in a systematic manner so your team can refer to them in Section 3.2 of the SRS, in the SDD, and in the testing documents. This section should not be design-oriented, a common mistake.     
 
@@ -219,7 +219,7 @@ Although Steemix is ‘Always-On’, its live status is determined by (3) CRON
 	
 ### 3.2.2 Data Dictionary
 
-		Data dictionary supplies information such as data item, data type, how data is used.
+Data dictionary supplies information such as data item, data type, how data is used.
 
 ## 3.3 Non-Functional requirements
 
@@ -245,8 +245,8 @@ Alternative Flow Description: (include precondition & post-condition)
 
 ### 4.1.3 List potential / analysis classes based on the problem statement and use cases.
 
-    • Provide clean drawings of your models. 
-    • Include explanatory text as needed. 
+- Provide clean drawings of your models. 
+- Include explanatory text as needed. 
 
 # 5. Special remarks or comments
 
