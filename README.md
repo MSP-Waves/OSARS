@@ -40,13 +40,13 @@ Illustration 1: System AS IS, Windows Server with OBS to be replaced
 NOTE: This section gives an “executive overview” and is very client-oriented.
 
 ## 2.1 Glossary (Definitions, Acronyms, and Abbreviations)
-CRON: Unix based job scheduler
-MOBS: Master Open Broadcast System
-MSP: Minnow Support Project minnowsupportproject.org
-MSPW: MSP Waves, the station name
-OBS Open Broadcaster Software 
-OSAR: Open Source Automated Radio 
-rtmp: A stream protocol for audio and video broadcasts
+- CRON: Unix based job scheduler
+- MOBS: Master Open Broadcast System
+- MSP: Minnow Support Project minnowsupportproject.org
+- MSPW: MSP Waves, the station name
+- OBS Open Broadcaster Software 
+- OSAR: Open Source Automated Radio 
+- rtmp: A stream protocol for audio and video broadcasts
 
   
 
@@ -79,14 +79,12 @@ The MSP Waves Ops team is a voluntary organization. Due to its nature, knowledga
 
 A short description of the functions to be performed by the software, i.e. what the product should do.  This description must be in a form understandable to users, operators, and clients.  The detailed requirements specifications are left to Section 3.2 in this SRS.  Number the Functional Requirements in a systematic manner so the team can refer to them in Section 3.2 of the SRS, in the SDD, and in the testing documents. This section should not be design-oriented, a common mistake.     
 
-(1) DJs produce live audio and video content which they deliver via rtmp audio/video stream using a DJ hosted software solution, which in most cases is open source OBS (Open Broadcast Software) for the purpose of that stream being 
-(2) captured via an NGINX engine,
-(3) scheduled  via CRON or similar, and
+- (1) DJs produce live audio and video content which they deliver via rtmp audio/video stream using a DJ hosted software solution, which in most cases is open source OBS (Open Broadcast Software) for the purpose of that stream being 
+- (2) captured via an NGINX engine,
+- (3) scheduled  via CRON or similar, and
 transmitted by MSPW via (2) to its
-(5) audience on mspwaves.com/listen, dlive.io, an MSPW mobile radio application as well as non MSP streaming outlets.
-
-During non-live air-times,
-(6) Steemix, a playlist of categorized music performances by Steemians is transmitted to provide a 24x7 listening experience for the audience.
+- (4) audience on mspwaves.com/listen, dlive.io, an MSPW mobile radio application as well as non MSP streaming outlets.
+- (5) Steemix, a playlist of categorized music performances by Steemians is transmitted to provide a 24x7 listening experience for the audience.
 
 
 ## 2.5 General Constraints and Assumptions
@@ -198,7 +196,7 @@ Show Based Triggers- `$show` will correlate with show OBS host steem name
 **Override**
 - if $override stream key detected, ffmpeg to `live`, ignoring timed triggers until stream disconnects
 
-##### (5) AUDIENCE
+##### (4) AUDIENCE
 
 This list must be configurable. It must not be hard-coded. Any destination can be turned on/off even during live stream.
 - Dlive
@@ -210,7 +208,7 @@ This list must be configurable. It must not be hard-coded. Any destination can b
 A short description of the functions to be performed by the software, i.e. what the product should do.  This description must be in a form understandable to users, operators, and clients.  The detailed requirements specifications are left to Section 3.2 in this SRS.  Number the Functional Requirements in a systematic manner so your team can refer to them in Section 3.2 of the SRS, in the SDD, and in the testing documents. This section should not be design-oriented, a common mistake.     
 
 
-##### (6) STEEMIX
+##### (5) STEEMIX
 
 Steemix is our non-live backfill content which is delivered via Azuracast.com. It is our “Always-on” Default broadcast on MSPW.  Azuracast delivers a configurable playlist, which incorporates webhooks to display a Now Played notification via webhooks, which must be part of the Steemix video overlay. These webhooks should automatically be enabled when Steemix is actively streaming live and disabled during live or replay programming.
 
